@@ -349,19 +349,19 @@ at:
 will use tst2012 as our dev dataset, and tst2013 as our test dataset.
 
 Run the following command to download the data for training NMT model:\
-	`nmt/scripts/download_iwslt15.sh /tmp/nmt_data`
+	`nmt/scripts/download_iwslt15.sh nmt_data`
 
 Run the following command to start the training:
 
 ``` shell
-mkdir /tmp/nmt_model
+mkdir nmt_models
 python -m nmt.nmt \
     --src=vi --tgt=en \
-    --vocab_prefix=/tmp/nmt_data/vocab  \
-    --train_prefix=/tmp/nmt_data/train \
-    --dev_prefix=/tmp/nmt_data/tst2012  \
-    --test_prefix=/tmp/nmt_data/tst2013 \
-    --out_dir=/tmp/nmt_model \
+    --vocab_prefix=nmt_data/vocab  \
+    --train_prefix=nmt_data/train \
+    --dev_prefix=nmt_data/tst2012  \
+    --test_prefix=nmt_data/tst2013 \
+    --out_dir=nmt_models \
     --num_train_steps=12000 \
     --steps_per_stats=100 \
     --num_layers=2 \
